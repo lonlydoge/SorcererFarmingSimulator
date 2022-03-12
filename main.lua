@@ -1,10 +1,17 @@
 local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/MaterialLua/master/Module.lua"))()
 local Locations = {Endurance15M = CFrame.new(1382.09485, 117.744446, 2953.90503, 1, 0, 0, 0, 1, 0, 0, 0, 1), Water15M = CFrame.new(-324.960297, 289.047607, 617.203613, 0.939688325, -0.342032015, -7.74115324e-06, 0.309976697, 0.851630032, -0.422659129, 0.144569546, 0.397165447, 0.906288743), Endurance150K = CFrame.new(-239.659637, 111.266975, -192.735718, 1, 0, 0, 0, 1, 0, 0, 0, 1), Water500M = CFrame.new(2087.35327, 319.699585, 4075.97559, -0.0307138022, 5.78389558e-09, 0.999528229, 4.68250967e-08, 1, -4.34777014e-09, -0.999528229, 4.66694701e-08, -0.0307138022)}
+local Sorted = {}
 local Skills = {Water = "SG", ["Endurance"] = {"SG", "Endurance"}}
 local EquipList = {Water = "SE", Endurance = "PUI"}
 local LocalPlayer = game:GetService("Players").LocalPlayer
 getgenv().style = ""
 getgenv().Teleport = ""
+
+for i in pairs(Locations) do
+    table.insert(Sorted, i)
+end
+
+table.sort(Sorted)
 
 
 local UI = Material.Load({
@@ -82,12 +89,7 @@ local Selected = MiscPage.Dropdown({
 	Callback = function(Value)
 		getgenv().Teleport = Value
 	end,
-	Options = {
-		"Water15M",
-		"Endurance150K",
-		"Water500M",
-		"Endurance15M"
-	}
+	Options = Sorted
 })
 
 local TeleportTo = MiscPage.Button({
@@ -99,7 +101,6 @@ local TeleportTo = MiscPage.Button({
 
 --[[
 local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/MaterialLua/master/Module.lua"))()
-
 local X = Material.Load({
 	Title = "ChibuHub",
 	Style = 3,
@@ -110,15 +111,12 @@ local X = Material.Load({
 		MainFrame = Color3.fromRGB(235,235,235)
 	}
 })
-
 local Y = X.New({
 	Title = "1"
 })
-
 local Z = X.New({
 	Title = "2"
 })
-
 local A = Y.Button({
 	Text = "Kill All",
 	Callback = function()
@@ -132,7 +130,6 @@ local A = Y.Button({
 		end
 	}
 })
-
 local B = Y.Toggle({
 	Text = "I'm a switch",
 	Callback = function(Value)
@@ -140,7 +137,6 @@ local B = Y.Toggle({
 	end,
 	Enabled = false
 })
-
 local C = Y.Slider({
 	Text = "Slip and... you get the idea",
 	Callback = function(Value)
@@ -150,7 +146,6 @@ local C = Y.Slider({
 	Max = 400,
 	Def = 300
 })
-
 local D = Y.Dropdown({
 	Text = "Dropping care package",
 	Callback = function(Value)
@@ -171,7 +166,6 @@ local D = Y.Dropdown({
 		end
 	}
 })
-
 local E = Y.ChipSet({
 	Text = "Chipping away",
 	Callback = function(ChipSet)
@@ -194,7 +188,6 @@ local E = Y.ChipSet({
 		}
 	}
 })
-
 local F = Y.DataTable({
 	Text = "Chipping away",
 	Callback = function(ChipSet)
@@ -217,7 +210,6 @@ local F = Y.DataTable({
 		}
 	}
 })
-
 local G = Y.ColorPicker({
 	Text = "ESP Colour",
 	Default = Color3.fromRGB(0,255,110),
@@ -232,7 +224,6 @@ local G = Y.ColorPicker({
 		end
 	}
 })
-
 local H = Y.TextField({
 	Text = "Country",
 	Callback = function(Value)
