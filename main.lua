@@ -1,5 +1,5 @@
 local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/MaterialLua/master/Module.lua"))()
-local Locations = {A = CFrame.new(0, 0, 0), Water15M = CFrame.new(-324.960297, 289.047607, 617.203613, 0.939688325, -0.342032015, -7.74115324e-06, 0.309976697, 0.851630032, -0.422659129, 0.144569546, 0.397165447, 0.906288743), Endurance150K = CFrame.new(-239.659637, 111.266975, -192.735718, 1, 0, 0, 0, 1, 0, 0, 0, 1)}
+local Locations = {A = CFrame.new(0, 0, 0), Water15M = CFrame.new(-324.960297, 289.047607, 617.203613, 0.939688325, -0.342032015, -7.74115324e-06, 0.309976697, 0.851630032, -0.422659129, 0.144569546, 0.397165447, 0.906288743), Endurance150K = CFrame.new(-239.659637, 111.266975, -192.735718, 1, 0, 0, 0, 1, 0, 0, 0, 1), Water500M = CFrame.new(2087.35327, 319.699585, 4075.97559, -0.0307138022, 5.78389558e-09, 0.999528229, 4.68250967e-08, 1, -4.34777014e-09, -0.999528229, 4.66694701e-08, -0.0307138022)}
 local Skills = {Water = "SG", ["Endurance"] = {"SG", "Endurance"}}
 local EquipList = {Water = "SE", Endurance = "PUI"}
 local LocalPlayer = game:GetService("Players").LocalPlayer
@@ -84,7 +84,8 @@ local Selected = MiscPage.Dropdown({
 	end,
 	Options = {
 		"Water15M",
-		"Endurance150K"
+		"Endurance150K",
+		"Water500M"
 	}
 })
 
